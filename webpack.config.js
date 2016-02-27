@@ -26,12 +26,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.less$/,
+        test: /\.styl$/,
         loaders: [
           "style-loader",
           "css-loader",
           "autoprefixer-loader?browsers=last 2 version",
-          "less-loader?strictMath&cleancss"
+          "stylus-loader?strictMath&cleancss"
         ]
       }
     ]

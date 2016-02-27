@@ -1,13 +1,14 @@
 {
-  "name": "omniscient-starter-pack",
+  "name": "comdux",
   "version": "1.0.0",
-  "description": "omniscient+immstruct es6 starter pack",
+  "description": "comdux test",
   "main": "hot-reload-server.js",
   "dependencies": {
     "immstruct": "^2.0.0",
+    "immstruct-actions": "^0.9.0",
     "omniscient": "^4.0.0",
-    "react-dom": "^0.14.0",
-    "react": "^0.14.0"
+    "react": "^0.14.0",
+    "react-dom": "^0.14.7"
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",
@@ -16,15 +17,17 @@
     "babel-loader": "^5.3.2",
     "babel-runtime": "^5.8.3",
     "css-loader": "^0.15.5",
-    "less": "^2.5.1",
-    "less-loader": "^2.2.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "react-hot-loader": "^1.2.8",
     "style-loader": "^0.12.3",
+    "stylus": "^0.53.0",
+    "stylus-loader": "^1.5.1",
     "webpack": "^1.10.2",
     "webpack-dev-server": "^1.10.1"
   },
   "scripts": {
-    "start": "node hot-reload-server.js"
+    "start": "node hot-reload-server.js",
+    "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js"
   },
   "repository": {
     "type": "git",
@@ -39,7 +42,7 @@
     "webpack",
     "hot-reload"
   ],
-  "author": "@torgeir",
+  "author": "@wcastand",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/omniscient/omniscient-starter-pack/issues"

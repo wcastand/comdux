@@ -1,24 +1,16 @@
-import React from 'react';
-import component from 'omniscient';
-import immstruct from 'immstruct';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import omniscient from 'omniscient'
 
-import App from './app';
-import '../less/index.less';
+const component = omniscient.withDefaults({ jsx: true })
 
-let data = immstruct({
-  counter: 0
-});
+import { store, mixins } from './mixins'
+import App from './app'
 
-let el = document.querySelector('#app');
+import '../stylus/main.styl'
 
-let render = () =>
-  React.render(
-    App({ counter: data.cursor('counter') }),
-    el);
-
-render();
-data.on('swap', render);
-
-setInterval(
-  () => data.cursor().update('counter', i => i + 1),
-  1000);
+const Mixins = mixins.subscribe(render)
+render()
+function render(){
+  ReactDOM.render(<App store={store.cursor()} mixins={Mixins.fn} />, document.querySelector('#app'))
+}

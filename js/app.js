@@ -1,17 +1,12 @@
-import component from 'omniscient';
-import {DOM} from 'react';
-let {div} = DOM;
+import component from 'omniscient'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-export default component('App', ({counter}) =>
-  div({ className: 'app' },
-    counter.deref()));
+import EntryInput from './components/EntryInput'
 
-  // or with jsx:
-  //
-  // <div className="app">
-  //   {counter.deref()}
-  // </div>);
-  //
-  // just remember to:
-  //
-  // import React from 'react';
+export default component(({ store, mixins: { onChangeHandler } }) => (
+    <div>
+      <EntryInput store={store.cursor('inputs')}  onChangeHandler={ onChangeHandler }/>
+    </div>
+  )
+)
