@@ -1,13 +1,3 @@
-# omniscient starter pack
+#comdux
 
-- omniscient
-- immstruct
-- babel
-- webpack
-- react-hot-reload
-- less
-- autoprefixer
-
-Run
-
-`npm run start`
+Training with React, omniscient, immstruct, etc...
