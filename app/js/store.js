@@ -1,7 +1,7 @@
 import immstruct from 'immstruct'
 
 let entries = JSON.parse(localStorage.getItem('entries')) || []
-let montly = JSON.parse(localStorage.getItem('montly')) || []
+let monthly = JSON.parse(localStorage.getItem('monthly')) || []
 
 let initialState = {
   entries: [],
@@ -14,6 +14,6 @@ let initialState = {
 
 const store = immstruct(initialState)
 entries.map(entry => store.cursor('entries').update(i => [...i, entry]))
-montly.map(m => store.cursor('montly').update(i => [...i, m]))
+monthly.map(m => store.cursor('monthly').update(i => [...i, m]))
 
 export default store

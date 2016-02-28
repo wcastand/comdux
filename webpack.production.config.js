@@ -5,7 +5,7 @@ var node_modules_dir = path.resolve(__dirname, 'node_modules');
 
 var config = {
   entry: {
-    app: path.resolve(__dirname, 'js/index.js'),
+    app: path.resolve(__dirname, 'app/js/index.js'),
 
     // Since react is installed as a node module, node_modules/react,
     // we can point to it directly, just like require('react');
