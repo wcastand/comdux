@@ -2,9 +2,15 @@ import component from 'omniscient'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const Entries = component(({store, mixins:{ setMonthly }} ) => (
+import Entry from './Entry'
+import moment from 'moment'
+
+const Entries = component(({store, mixins:{ setMonthly, deleteEntry }} ) => (
   <ul className='list entries'>
-    { store.deref().map((i, idx) => (<li key={'entry-' + i.id} onDoubleClick={ setMonthly } data-id={i.id} >{i.title} - {i.price}</li>)) }
+    { store.get('entries')
+      .filter(x => moment(x.created_at).month() === parseInt(store.cursor('inputs').get('currentMonth')))
+      .map(i => (<Entry key={ 'entry-' + i.id }  parent='entries' onDoubleClick={ deleteEntry }  setMonthly={ setMonthly } entry={ i } />))
+    }
   </ul>
   )
 )
